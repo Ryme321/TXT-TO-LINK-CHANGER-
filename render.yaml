@@ -1,0 +1,11 @@
+services:
+  - type: web # Can also be 'worker' if your bot doesn't need an external URL
+    name: my-telegram-echo-bot
+    env: python
+    plan: free # Or your desired plan
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "python bot.py"
+    envVars:
+      - key: TELEGRAM_TOKEN
+        sync: false # Set this in the Render dashboard
+        
